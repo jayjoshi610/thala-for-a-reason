@@ -149,6 +149,14 @@ function showRandomGif() {
     const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
     
     
+    gifElement.onload = function() {
+        console.log('GIF loaded successfully:', randomGif);
+    };
+    
+    gifElement.onerror = function() {
+        console.error('Failed to load GIF:', randomGif);
+    };
+    
     gifElement.src = randomGif;
     gifElement.style.display = 'block';
     gifElement.style.maxWidth = '600px';
