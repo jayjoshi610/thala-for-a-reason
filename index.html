@@ -4,35 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thala For A Reason</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="background-gradient"></div>
     <div id="mainContent">
-        <h1>Thala For A Reason</h1>
-        <h3>Everything happens in this universe just because of Thala</h3>
-        <h3>Don't believe in me? Check it yourself</h3>
-        <input type="text" id="userInput" placeholder="Enter your name or anything">
-        <button onclick="relateToSeven()">Get THALA-fied !!</button>
-        <div id="outputText"></div>
+        <div class="container">
+            <div class="header-section">
+                <div class="header-badge">🏆 THALA ANALYSIS 🏆</div>
+                <h1>Thala For A Reason</h1>
+                <p class="subtitle">Everything in this universe happens because of Thala</p>
+                <p class="tagline">Don't believe? Let's find out!</p>
+            </div>
 
-        <div id="gifContainer" style="text-align: center; margin-top: 20px;">
-            <img id="randomGif" src="" alt="Random GIF" style="display: none; max-width: 100%; height: auto;">
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input type="text" id="userInput" placeholder="Enter your name or any number...">
+                    <button onclick="relateToSeven()" class="cta-button">
+                        <span>Get THALA-fied!</span>
+                        <span class="button-icon">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="outputText" class="output-section"></div>
+
+            <div id="gifContainer" class="gif-section">
+                <img id="randomGif" src="" alt="Random GIF" class="random-gif">
+            </div>
         </div>
     </div>
+
     <footer>
-        <p>Made By Jay Joshi out of boredom</p>
-        <div class="social-icons">
-            <a href="https://x.com/jayxjoshi" target="_blank">
-                <img src="https://freepnglogo.com/images/all_img/1691832581twitter-x-icon-png.png" alt="Twitter">
-            </a>
-            <a href="https://instagram.com/jayxjoshi" target="_blank">
-                <img src="https://freepnglogo.com/images/all_img/1715965947instagram-logo-png%20(1).png" alt="Instagram">
-            </a>
+        <div class="footer-content">
+            <p>Made with <span class="heart">❤️</span> by Jay Joshi</p>
+            <div class="social-icons">
+                <a href="https://x.com/jayxjoshi" target="_blank" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.75l-5.305-6.93-6.073 6.93h-3.306l7.73-8.835L.4 2.25h6.63l4.804 6.354 5.61-6.354zM17.02 18.954h1.828L5.423 3.709H3.46l13.56 15.245z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/jayxjoshi" target="_blank" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m5.521 12.75c-.004.99-.089 1.645-.213 2.223-.288 1.44-.934 2.471-1.923 3.46-.989.989-2.02 1.635-3.46 1.923-.578.124-1.233.209-2.223.213-.99.004-1.302.005-3.622.005-2.32 0-2.632-.001-3.622-.005-.99-.004-1.645-.089-2.223-.213-1.44-.288-2.471-.934-3.46-1.923-.989-.989-1.635-2.02-1.923-3.46-.124-.578-.209-1.233-.213-2.223C.754 11.25.753 10.938.753 8.618c0-2.32.001-2.632.005-3.622.004-.99.089-1.645.213-2.223.288-1.44.934-2.471 1.923-3.46.989-.989 2.02-1.635 3.46-1.923.578-.124 1.233-.209 2.223-.213.99-.004 1.302-.005 3.622-.005 2.32 0 2.632.001 3.622.005.99.004 1.645.089 2.223.213 1.44.288 2.471.934 3.46 1.923.989.989 1.635 2.02 1.923 3.46.124.578.209 1.233.213 2.223.004.99.005 1.302.005 3.622 0 2.32-.001 2.632-.005 3.622z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@latest/dist/confetti.browser.min.js"></script>
     <audio id="confettiSound" src="./media/Bole-Jo-Koyal-Bago-Me.mp3" preload="auto"></audio>
 </body>
-
 </html>

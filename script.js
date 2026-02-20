@@ -1,22 +1,43 @@
 
 function triggerEffects() {
-    
-    const playConfetti = (times) => {
+    const playConfettiSequence = (times) => {
         if (times > 0) {
+            // School pride colors confetti
             confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
+                particleCount: 80,
+                spread: 100,
+                origin: { y: 0.5 },
+                colors: ['#f7e500', '#002e5d', '#0052cc', '#ffd700', '#003d99']
             });
-            setTimeout(() => playConfetti(times - 1), 1000); 
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 120,
+                    origin: { x: 0, y: 0.8 },
+                    colors: ['#f7e500', '#ffd700', '#002e5d']
+                });
+            }, 150);
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 120,
+                    origin: { x: 1, y: 0.8 },
+                    colors: ['#002e5d', '#0052cc', '#f7e500']
+                });
+            }, 300);
+
+            setTimeout(() => playConfettiSequence(times - 1), 800); 
         }
     };
 
-    playConfetti(7); 
+    playConfettiSequence(3); 
 
     
     const audio = document.getElementById("confettiSound");
-    audio.play();
+    audio.currentTime = 0;
+    audio.play().catch(() => console.log('Audio play failed'));
 }
 
 function relateToSeven() {
@@ -32,7 +53,7 @@ function relateToSeven() {
     } else if (userInput !== "") {
         
         number = userInput.length;
-        steps.push(`Length of the ${userInput} is ${number}`);
+        steps.push(`Length of "${userInput}" is ${number}`);
     } else {
         
         document.getElementById("outputText").innerText = "Please enter something!";
@@ -100,7 +121,7 @@ function relateToSeven() {
     
     function typeText(text, elementId, callback) {
         let index = 0;
-        const speed = 20; 
+        const speed = 15; 
         const element = document.getElementById(elementId);
         element.innerHTML = ''; 
         
@@ -110,7 +131,7 @@ function relateToSeven() {
                 
                 
                 if (char === '\n') {
-                    element.innerHTML += '<br>';
+                    element.innerHTML += '<br><br>';
                 } else {
                     element.innerHTML += char;
                 }
@@ -126,14 +147,13 @@ function relateToSeven() {
     }
 
     
-    const fullText = `${steps.join('\n\n')}\n\n${message}\n\nTHALA FOR A REASON !!`;
+    const fullText = `${steps.join('\n\n')}\n\n${message}\n\n✨ THALA FOR A REASON !! ✨`;
     
     
     typeText(fullText, 'outputText', showRandomGif); 
 }
 
 function showRandomGif() {
-    const gifContainer = document.getElementById('gifContainer');
     const gifElement = document.getElementById('randomGif');
     
     
@@ -151,15 +171,15 @@ function showRandomGif() {
     
     gifElement.onload = function() {
         console.log('GIF loaded successfully:', randomGif);
+        gifElement.style.display = 'block';
     };
     
     gifElement.onerror = function() {
         console.error('Failed to load GIF:', randomGif);
+        gifElement.style.display = 'none';
     };
     
     gifElement.src = randomGif;
-    gifElement.style.display = 'block';
-    gifElement.style.maxWidth = '600px';
     
     console.log('Loading GIF:', randomGif);
     
