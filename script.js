@@ -138,11 +138,11 @@ function showRandomGif() {
     
     
     const gifs = [
-        'media/gif1.gif',
-        'media/gif2.gif',
-        'media/gif4.gif',
-        'media/gif5.gif',
-        'media/gif6.gif'
+        './media/gif1.gif',
+        './media/gif2.gif',
+        './media/gif4.gif',
+        './media/gif5.gif',
+        './media/gif6.gif'
     ];
 
     
@@ -151,7 +151,9 @@ function showRandomGif() {
     
     gifElement.src = randomGif;
     gifElement.style.display = 'block';
+    gifElement.style.maxWidth = '600px';
     
+    console.log('Loading GIF:', randomGif);
     
     triggerEffects();
 }
